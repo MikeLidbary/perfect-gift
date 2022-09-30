@@ -16,7 +16,7 @@ class SurveyController extends Controller
     public function respond(Request $request)
     {
         $response = trim($request->Body);
-        $whatsapp_number = $request->From;
+        $whatsapp_number = str_replace("whatsapp:","",$request->From);
         $user = User::where('whatsapp_number', $whatsapp_number)->first();
         if (!$user) {
             $user = new User();
@@ -58,7 +58,7 @@ class SurveyController extends Controller
             'gift_idea' => 'required',
         ]);
 
-        $whatsapp_number = $request->whatapp_number;
+        $whatsapp_number = $request->whatsapp_number;
 
         $gift_idea = $request->gift_idea;
 

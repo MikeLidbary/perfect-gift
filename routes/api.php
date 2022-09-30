@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/respond', [SurveyController::class, 'respond']);
+Route::post('/respond', [SurveyController::class, 'respond']);
